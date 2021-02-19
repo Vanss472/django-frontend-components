@@ -42,7 +42,7 @@ python3 manage.py makemigrations mysite
 python3 manage.py migrate mysite
 ```
 
-## Step 5: Run CMS
+## Step 5: Create Admin Login User CMS
 ```bash
 python3 manage.py createsuperuser
 ```
