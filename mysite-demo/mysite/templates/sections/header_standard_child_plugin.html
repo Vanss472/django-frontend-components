@@ -1,0 +1,11 @@
+{% load cms_tags thumbnail %}
+<img
+  class="lazyload blur-up"
+  data-expand="100"
+  data-sizes="auto"
+  data-src="{{ instance.header_image.url }}"
+  data-srcset="{% thumbnail instance.header_image 400x365 crop %} 350w,
+  {% thumbnail instance.header_image 800x731 crop %} 500w,
+  {{ instance.header_image.url }} 700w,
+  {{ instance.header_image.url }} 1000w"
+  alt="{{ instance.header_image.default_alt_text }}" />

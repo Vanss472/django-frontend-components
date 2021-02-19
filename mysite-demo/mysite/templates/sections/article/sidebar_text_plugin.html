@@ -1,0 +1,19 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTION
+	containing a two column system in which one column contains card grid
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags %}
+<div class="text_sidebar {{ instance.width_style }}">
+	<section class="editor">
+		{{ instance.content }}
+	</section>
+	<section class="card-grid text-cards columns-1">
+		{% for plugin in instance.child_plugin_instances %}
+			{% render_plugin plugin %}
+		{% endfor %}
+	</section>
+</div>

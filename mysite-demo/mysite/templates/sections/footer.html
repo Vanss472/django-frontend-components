@@ -1,0 +1,195 @@
+{% load static menu_tags cms_tags %}
+<footer>
+  <div class="post-footer">
+    <div class="post-footer-inner">
+      <div>
+        <div>
+          <a href="/">
+            <img
+              class="logo"
+              src="{% static 'images/logo-mysite.svg' %}"
+              alt="institute for multi-sensory education"
+            />
+          </a>
+          <address>
+            <a href="tel:+18006469788" class="button is-text"
+              >(800) 646 - 9788 &gt;</a
+            ><br />
+            24800 Denso Drive<br />
+            Suite 202<br />
+            Southfield, MI 48033<br />
+          </address>
+        </div>
+        <details>
+          <summary>About</summary>
+          <nav>
+            <div class="menu-about-container">
+              <ul id="menu-about" class="menu">
+                <li
+                  class="menu-item"
+                >
+                  <a href="/about-us/">About Us</a>
+                </li>
+                {% show_menu_below_id "aboutus" %}
+              </ul>
+            </div>
+          </nav>
+        </details>
+        <details>
+          <summary>Products</summary>
+          <nav>
+            <div class="menu-products-container">
+              <ul id="menu-products" class="menu">
+                <li
+                  class="menu-item"
+                >
+                  <a href="/products/">All Products</a>
+                </li>
+                {% show_menu_below_id "products" %}
+              </ul>
+            </div>
+          </nav>
+        </details>
+        <details>
+          <summary>Training</summary>
+          <nav>
+            <div class="menu-training-container">
+              <ul id="footer-menu-training" class="menu">
+                <li
+                  class="menu-item"
+                >
+                  <a href="/training/">Training Schedule</a>
+                </li>
+                {% show_menu_below_id "training" %}
+              </ul>
+            </div>
+          </nav>
+        </details>
+        <details>
+          <summary>Additional Links</summary>
+          <nav>
+            <div class="menu-additional-container">
+              <ul id="menu-additional" class="menu">
+                {% static_placeholder "additional_links" %}
+              </ul>
+            </div>
+          </nav>
+        </details>
+        <div>
+          <span class="title">Follow Us</span>
+          <nav>
+            <ul class="social-nav">
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/Orton-Gillingham-358905134128313/"
+                  rel="noopener"
+                >
+                  <img
+                    src="{% static 'images/icon-fb.svg' %}"
+                    alt="institute for multi-sensory education on facebook"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.pinterest.com/ortongillingham/"
+                  rel="noopener"
+                >
+                  <img
+                    src="{% static 'images/icon-pinterest.svg' %}"
+                    alt="institute for multi-sensory education on pinterest"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/channel/UCPJqkhSNKynPzgLj4Xuqp9g?view_as=subscriber"
+                  rel="noopener"
+                >
+                  <img
+                    src="{% static 'images/icon-youtube.svg' %}"
+                    alt="institute for multi-sensory education on youtube"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://twitter.com/mysiteOG"
+                  rel="noopener"
+                >
+                  <img
+                    src="{% static 'images/icon-twitter.svg' %}"
+                    alt="institute for multi-sensory education on twitter"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/company/orton-gillingham/"
+                  rel="noopener"
+                >
+                  <img
+                    src="{% static 'images/icon-linked.svg' %}"
+                    alt="institute for multi-sensory education on linkedin"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/mysite_og/"
+                  rel="noopener"
+                >
+                  <img
+                    src="{% static 'images/icon-insta.svg' %}"
+                    alt="institute for multi-sensory education on instagram"
+                  />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div>
+        <div class="login">
+          <a href="/login" class="button is-text">Member Login &gt;</a>
+          <a href="/login" class="button is-text split">
+            <span class="label">Not a member?</span>
+            <span class="link">Sign up &gt;</span>
+          </a>
+        </div>
+        <div class="badges">
+          <img src="{% static 'images/logo-ida.png' %}" alt="" />
+          <img src="{% static 'images/logo_WBENC_seal.png' %}" alt="" />
+          <img src="{% static 'images/logo-reading-leage.png' %}" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="copyright-inner">
+      <div>
+        <p>© 2020 mysite. All Rights Reserved.</p>
+        <ul>
+          <li>
+            <a href="/privacy-policy/">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+          </li>
+        </ul>
+      </div>
+      <a target="_blank" href="https://element5digital.com" rel="nofollow noopener">
+        <img
+          src="https://element5digital.com/wp-content/themes/e5-starting-point/dist/images/element5_credit_alt.svg"
+          alt="Crafted by Element5 Digital"
+        />
+      </a>
+    </div>
+  </div>
+</footer>

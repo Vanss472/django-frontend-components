@@ -1,0 +1,292 @@
+{% load cms_tags  djangocms_forms_tags i18n sekizai_tags static %}
+
+<div class="gform_wrapper">
+  <form method="POST" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} id="contactForm" action="{{ form.submission_url }}">
+      <div class="form_body">
+        <ul
+          class="gform_fields"
+        >
+        {% for field in form.visible_fields %}
+
+                    {% if field|is_checkbox %}
+
+
+              <div class="ginput_container_consent">
+
+
+              <label class="gfield_label" >
+                We are committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. To learn more please read our privacy policy.</label>
+            </div>
+
+           <div class="ginput_container_consent">
+
+                       {{ field }}
+
+              <label class="gfield_label" for="{{ field.id_for_label }}">
+                I agree to the privacy policy.*</label
+              >
+            </div>
+
+
+  {% elif field.id_for_label == 'firstname'  or field.id_for_label == 'lastname'  %}
+
+          {% if not field.id_for_label == 'lastname'  %}
+             <li
+                  class="field"
+                >
+                  <label class="field_label" >Name</label>
+                  <div
+                    class="ginput_complex ginput_container no_prefix has_first_name no_middle_name has_last_name no_suffix gf_name_has_2 ginput_container_name"
+                    id="input_6_1"
+                  >
+                    <span id="input_6_1_3_container" class="name_first">
+                      <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        value=""
+                        aria-label="First name"
+                        required="true"
+                        aria-invalid="false"
+                      />
+                      <label for="firstname">First</label>
+                    </span>
+
+                    <span id="input_6_1_6_container" class="name_last">
+                      <input
+                        type="text"
+                        name="lastname"
+                        id="lastname"
+                        value=""
+                        aria-label="Last name"
+                        required="true"
+                        aria-invalid="false"
+                      />
+                      <label for="lastname">Last</label>
+                    </span>
+                  </div>
+                </li>
+
+          {% endif %}
+
+
+             {% elif  field.id_for_label == 'uploadfile'  %}
+
+                   <li
+                id="field_5_5"
+                class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label file-upload-label"
+                  >Resume<span class="gfield_required">*</span></label
+                >
+                <div class="ginput_container ginput_container_fileupload">
+                  <div
+                    id="gform_multifile_upload_5_5"
+                    data-settings='{"runtimes":"html5,flash,html4","browse_button":"gform_browse_button_5_5","container":"gform_multifile_upload_5_5","drop_element":"gform_drag_drop_area_5_5","filelist":"gform_preview_5_5","unique_names":true,"file_data_name":"file","url":"https:\/\/mysitestage.wpengine.com\/?gf_page=888f1c49614e9f1","flash_swf_url":"https:\/\/mysitestage.wpengine.com\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"https:\/\/mysitestage.wpengine.com\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":{"mime_types":[{"title":"Allowed Files","extensions":"doc,docx,pdf"}],"max_file_size":"52428800b"},"multipart":true,"urlstream_upload":false,"multipart_params":{"form_id":5,"field_id":5},"gf_vars":{"max_files":0,"message_id":"gform_multifile_messages_5_5","disallowed_extensions":["php","asp","aspx","cmd","csh","bat","html","htm","hta","jar","exe","com","js","lnk","htaccess","phtml","ps1","ps2","php3","php4","php5","php6","py","rb","tmp"]}}'
+                    class="gform_fileupload_multifile"
+                    style="position: relative"
+                  >
+                    <div
+                      id="gform_drag_drop_area_5_5"
+                      class="gform_drop_area"
+                      style="position: relative"
+                    >
+                      <span class="gform_drop_instructions"
+                        >Drop files here or
+                      </span>
+                      <input
+                        id="gform_browse_button_5_5"
+                        type="button"
+                        value="Select files"
+                        class="button gform_button_select_files"
+                        aria-describedby="extensions_message_5_5"
+                        style="position: relative; z-index: 1"
+                      />
+                    </div>
+                    <div
+                      id="html5_1emna6m3efi892ku7pjr81lkb3_container"
+                      class="moxie-shim moxie-shim-html5"
+                      style="
+                        position: absolute;
+                        top: 31px;
+                        left: 310px;
+                        width: 120px;
+                        height: 38px;
+                        overflow: hidden;
+                        z-index: 0;
+                      "
+                    >
+                      <input
+                        id="html5_1emna6m3efi892ku7pjr81lkb3"
+                        type="file"
+                        style="
+                          font-size: 999px;
+                          opacity: 0;
+                          position: absolute;
+                          top: 0px;
+                          left: 0px;
+                          width: 100%;
+                          height: 100%;
+                        "
+                        multiple=""
+                        accept="application/msword,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,application/pdf,.pdf"
+                      />
+                    </div>
+                  </div>
+                  <span id="extensions_message_5_5" class="screen-reader-text"
+                    >Accepted file types: doc, docx, pdf.</span
+                  >
+                  <div class="validation_message">
+                    <ul id="gform_multifile_messages_5_5"></ul>
+                  </div>
+                </div>
+                <div id="gform_preview_5_5"></div>
+              </li>
+              <li
+                id="field_5_6"
+                class="gfield field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+
+  {% elif field.id_for_label == 'city'  or field.id_for_label == 'state'  %}
+
+          {% if not field.id_for_label == 'state'  %}
+            <li
+                  id="field_6_4"
+                  class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+                >
+                  <label class="gfield_label gfield_label_before_complex"
+                    >Address<span class="gfield_required">*</span></label
+                  >
+                  <div
+                    class="ginput_complex ginput_container has_city has_state ginput_container_address"
+                    id="input_6_4"
+                  >
+                    <span
+                      class="ginput_left address_city"
+                      id="city"
+                    >
+                      <input
+                        type="text"
+                        name="city"
+                        id="city"
+                        value=""
+                        aria-required="true"
+                      />
+                      <label for="city" id="city_label_label"
+                        >City</label
+                      > </span
+                    ><span
+                      class="ginput_right address_state"
+                      id="input_6_4_4_container"
+                    >
+                      <select
+                        name="state"
+                        id="state"
+                        aria-required="true"
+                        class="has-placeholder"
+                      >
+                        <option value="" selected="selected"></option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="District of Columbia">
+                          District of Columbia
+                        </option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                        <option value="Armed Forces Americas">
+                          Armed Forces Americas
+                        </option>
+                        <option value="Armed Forces Europe">
+                          Armed Forces Europe
+                        </option>
+                        <option value="Armed Forces Pacific">
+                          Armed Forces Pacific
+                        </option>
+                      </select>
+                      <label for="state" id="state_label"
+                        >State</label
+                      > </span
+                    ><input
+                      type="hidden"
+                      class="gform_hidden"
+                      name="input_4.6"
+                      id="input_6_4_6"
+                      value="United States"
+                    />
+                    <div class="gf_clear gf_clear_complex"></div>
+                  </div>
+                </li>
+          {% endif %}
+
+            {% else %}
+        <li>
+            <label class="gfield_label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {% if not field|is_checkbox %}
+            {{ field }}
+          {% endif %}
+          {% if field.help_text %}
+            <div id="help-text-{{ field.auto_id }}" class="help-text">{{ field.help_text|safe }}</div>
+          {% endif %}
+          {% endif %}
+          </li>
+        {% endfor %}
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
+
+
+
+        </ul>
+      </div>
+      <div class="gform_footer top_label">
+        <button class="form-button" type="submit" value="{{ instance.submit_btn_txt }}">{{ instance.submit_btn_txt }}</button>
+      </div>
+  </form>
+</div>

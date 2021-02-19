@@ -1,0 +1,40 @@
+ {% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTION
+	display a price card
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags thumbnail %}
+<section class="price-card is-extra-wide">
+  {% if instance.image %}
+    <img
+      class="lazyload blur-up"
+      data-expand="100"
+      data-sizes="auto"
+      data-src="{{ instance.image.url }}"
+      data-srcset="
+        {% thumbnail instance.image 400x240 %} 250w,
+        {% thumbnail instance.image 800x481 %} 350w,
+        {{ instance.image.url }} 500w,
+        {{ instance.image.url }} 800w"
+      alt="{{ instance.image_alt }}"
+    />
+  {% endif %}
+
+	<div class="description">
+    {% if instance.content %}
+	    {{ instance.content }}
+    {% endif %}
+	</div>
+
+	<div class="price">
+		<p>{{ instance.price }}</p>
+    {% if instance.button_text %}
+    <a class="button" href="{{ instance.button_url }}" {% if instance.button_open_in_a_new_tab %}target="_blank"{% endif %}>
+			{{ instance.button_text }}
+		</a>
+    {% endif %}
+	</div>
+</section>

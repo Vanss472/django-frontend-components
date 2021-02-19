@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load cms_tags static sekizai_tags thumbnail %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock description %}
+{% block body_class %}home{% endblock %}
+
+{% block hero_content %}
+  {% placeholder 'Header Style' or %}
+
+    Add Header call to action or Standard
+
+  {% endplaceholder %}
+{% endblock %}
+
+{% block content %}
+  <article>
+    {% placeholder 'Article' or %}
+
+		  There is no content.
+
+	  {% endplaceholder %}
+  </article>
+{% endblock %}

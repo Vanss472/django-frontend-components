@@ -1,0 +1,93 @@
+{% load static cms_tags %}
+<div class="primary-navigation-mobile">
+  <nav>
+    <a href="">
+      <img
+        class="logo"
+        src="{% static 'images/logo-mysite-bg.svg' %}"
+        alt="institute for multi-sensory education"
+      />
+    </a>
+    <div>
+      <a href="tel:+18442923249">
+        <img
+          src="{% static 'images/icon-call-mobile.svg' %}"
+          alt="call mysite"
+        />
+      </a>
+      <a href="/cart/">
+        <img
+          src="{% static 'images/icon-cart-mobile.svg' %}"
+          alt="view cart"
+        />
+      </a>
+      <button class="mobile-menu">
+        <img
+          src="{% static 'images/icon-menu-mobile.svg' %}"
+          alt="open menu"
+        />
+        <img
+          src="{% static 'images/icon-close-mobile.svg' %}"
+          alt="close menu"
+        />
+      </button>
+    </div>
+  </nav>
+</div>
+<div class="sticky-navigation-mobile">
+  <nav>
+    <a href="">
+      <img
+        class="logo"
+        src="{% static 'images/logo-mysite.svg' %}"
+        alt="institute for multi-sensory education"
+      />
+    </a>
+    <div>
+      <a href="">
+        <img
+          src="{% static 'images/icon-call-mobile.svg' %}"
+          alt="call mysite"
+        />
+      </a>
+      <a href="">
+        <img
+          src="{% static 'images/icon-cart-mobile.svg' %}"
+          alt="view cart"
+        />
+      </a>
+      <button class="mobile-menu">
+        <img
+          src="{% static 'images/icon-menu-mobile.svg' %}"
+          alt="open menu"
+        />
+        <img
+          src="{% static 'images/icon-close-mobile.svg' %}"
+          alt="close menu"
+        />
+      </button>
+    </div>
+  </nav>
+</div>
+<div class="active-mobile-menu">
+  <div class="search">
+    <form role="search" method="get" id="searchform-mobile" action="/">
+      <label for="search-mobile" class="screen-reader-text">Search</label>
+      <input type="search" id="search-mobile" name="s" placeholder="Search …" value="" />
+      <button type="submit">
+        <img
+          src="{% static 'images/icon-search.svg' %}"
+          alt="search site"
+        />
+      </button>
+    </form>
+  </div>
+  <nav>
+    <div class="menu-mobile-container">
+      <ul id="menu-mobile" class="menu">
+        {% static_placeholder "main_menu" %}
+      </ul>
+    </div>
+  </nav>
+  <div class="login"><a href="/login" class="button">Login</a></div>
+</div>

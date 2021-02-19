@@ -1,0 +1,71 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+ARTICLE SECTION
+displaying grid of cards
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags thumbnail %}
+<div class="card">
+  {% if instance.parent.get_plugin_instance.0.format_style == 'image-top' %}
+    {% comment %} IMAGE {% endcomment %}
+    {% if instance.image %}
+    <figure>
+      <img
+        class="lazyload blur-up"
+        data-expand="100"
+        data-sizes="auto"
+        data-src="{{ instance.card_image.url }}"
+        data-srcset="{% thumbnail instance.card_image 400x192 crop %} 350w,
+        {% thumbnail instance.card_image 800x384 crop %} 700w,
+        {{ instance.card_image.url }} 1000w,
+        {{ instance.card_image.url }} 1200w"
+        alt="{{ instance.card_image_alt }}" />
+    </figure>
+    {% endif %}
+  {% endif %}
+
+
+  {% comment %} HEADLINE   {% endcomment %}
+  {% if instance.card_title %}
+  <h2>{{ instance.card_title }}</h2>
+  {% endif %}
+
+  {% comment %} DESCRIPTION {% endcomment %}
+  <div class="description">
+    {% if instance.card_description %}
+      {{ instance.card_description }}
+    {% endif %}
+    {% if instance.parent.get_plugin_instance.0.format_style == 'image-top' %}
+      {{ instance.card_content }}
+    {% endif %}
+  </div>
+
+  {% comment %} BUTTON {% endcomment %}
+  {% if instance.card_button_text and instance.card_button_two_text %}
+  <div>
+    {% if instance.card_button_text %}
+    <a class="button {% if instance.parent.get_plugin_instance.0.format_style == 'image-top' %}is-red{% endif %}" href="{{ instance.card_button_url }}" {% if instance.card_button_open_in_a_new_tab %}target="_blank"{% endif %}>
+      {{ instance.card_button_text }}
+    </a>
+    {% endif %}
+
+    {% if instance.card_button_two_text %}
+    <a class="button {% if instance.parent.get_plugin_instance.0.format_style == 'text' %}is-text{% endif %}" href="{{ instance.card_button_two_url }}" {% if instance.card_button_two_open_in_a_new_tab %}target="_blank"{% endif %}>
+      {{ instance.card_button_two_text }} >
+    </a>
+    {% endif %}
+  </div>
+  {% else %}
+
+    {% if instance.card_button_text or instance.card_button_two_text %}
+    <a class="cover-link" href="{{ instance.card_button_url }}" {% if instance.card_button_open_in_a_new_tab %}target="_blank"{% endif %}></a>
+    <div>
+      <div class="button {% if instance.parent.get_plugin_instance.0.format_style  == 'image-top' %}is-red{% endif %}">
+        {{ instance.card_button_text }}
+      </div>
+    </div>
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,44 @@
+{% load cms_tags %}
+
+{% if placeholder == 'utility_menu' or placeholder == 'additional_links' %}
+  <li class="menu-item">
+    <a href="{{ link }}"{% if instance.target %} target="{{ instance.target }}"{% endif %}{% if instance.attributes %} {{ instance.attributes_str }}{% endif %}>{% for plugin in instance.child_plugin_instances %}{% render_plugin plugin %}{% empty %}{{ instance.name }}{% endfor %}</a>
+  </li>
+{% elif placeholder == 'main_menu' %}
+  <li class="menu-item {% if instance.child_plugin_instances %}menu-item-has-children{% endif %}">
+    <a href="{{ link }}"{% if instance.target %} target="{{ instance.target }}"{% endif %}{% if instance.attributes %} {{ instance.attributes_str }}{% endif %}>
+    {{ instance.name }}</a>
+
+    {% if instance.child_plugin_instances %}
+    <ul class="sub-menu">
+
+      <li class="menu-item">
+      {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+      {% endfor %}
+      </li>
+
+    </ul>
+    {% endif %}
+  </li>
+{% else %}
+{% spaceless %}
+
+{# this needs to be in one line for rendering purpose #}
+{% endspaceless %}<a href="{{ link }}"{% if instance.target %} target="{{ instance.target }}"{% endif %}{% if instance.attributes %} {{ instance.attributes_str }}{% endif %}>{% for plugin in instance.child_plugin_instances %}{% render_plugin plugin %}{% empty %}{{ instance.name }}{% endfor %}</a>{% spaceless %}
+
+{% endspaceless %}
+{% endif %}
+
+{% comment %}
+# https://github.com/django-cms/djangocms-link/blob/master/djangocms_link/templates/djangocms_link/default/link.html
+    {{ instance.name }}
+    {{ link }} or {{ instance.get_link }} summarizes:
+        {{ instance.external_link }}
+        {{ instance.internal_link }}
+        {{ instance.anchor }}
+        {{ instance.mailto }}
+        {{ instance.phone }}
+    {{ instance.target }}
+    {{ instance.attributes_str }}
+{% endcomment %}

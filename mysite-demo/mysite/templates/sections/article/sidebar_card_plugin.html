@@ -1,0 +1,29 @@
+{% load cms_tags %}
+<div class="card">
+  {% comment %} HEADLINE {% endcomment %}
+  {% if instance.title %}
+    <h2>{{ instance.title }}</h2>
+  {% endif %}
+
+  {% comment %} DESCRIPTION {% endcomment %}
+  <div class="description">
+  {% if instance.description %}
+    {{ instance.description }}
+  {% endif %}
+  </div>
+
+  {% comment %} BUTTON {% endcomment %}
+  <div>
+    {% if instance.button_url %}
+    <a class="button" href="{{ instance.button_url }}" {% if instance.button_open_in_a_new_tab == True %}target="_blank"{% endif %}>
+      {{ instance.button_text }}
+    </a>
+    {% endif %}
+    {% comment %} BUTTON {% endcomment %}
+    {% if instance.button_two_url %}
+    <a class="button is-text" href="{{ instance.button_two_url }}" {% if instance.button_two_open_in_a_new_tab == True %}target="_blank"{% endif %}>
+      {{ instance.button_two_text }} >
+    </a>
+    {% endif %}
+  </div>
+</div>

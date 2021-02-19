@@ -1,0 +1,11 @@
+{% load cms_tags thumbnail %}
+<header class="post-head {{ instance.columns_style }}">
+
+  <h1>
+    {{ instance.header_title }}
+  </h1>
+
+  {% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+  {% endfor %}
+</header>

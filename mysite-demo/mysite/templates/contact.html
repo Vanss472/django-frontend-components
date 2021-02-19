@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock description %}
+{% block body_class %}contact full-width-page{% endblock %}
+
+{% block hero_content %}
+  {% placeholder 'Header Style' or %}
+
+		Add Header call to action or Standard
+
+  {% endplaceholder %}
+{% endblock %}
+
+{% block content %}
+	<article>
+    {% placeholder 'Article' or %}
+
+		  There is no content.
+
+	  {% endplaceholder %}
+
+    <div class="text_sidebar standard">
+      <section class="editor">
+        {% placeholder 'Form' or %}
+
+          Please enter Contact Form.
+
+	      {% endplaceholder %}
+      </section>
+
+      <section class="card-grid text-cards columns-1">
+        <div class="card">
+          <h2>mysite National Headquarters</h2>
+          <div class="description">
+            <p>Institute for Multi-Sensory Education</p>
+            <p>
+              <a
+                href="https://www.google.com/maps/place/Institute+For+Multi+Sensory+Education/@42.4781598,-83.2918413,17z/data=!3m1!4b1!4m5!3m4!1s0x8824ac312374d205:0x1c91dc44d146e1c0!8m2!3d42.429992!4d-83.471844"
+                >24800 Denso Drive, Suite 202<br />
+                Southfield, MI 48033</a>
+            </p>
+            <p><a href="mailto:info@mysite.com">Email Us</a></p>
+            <p>Fax: (248) 735-2927</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+{% endblock content %}

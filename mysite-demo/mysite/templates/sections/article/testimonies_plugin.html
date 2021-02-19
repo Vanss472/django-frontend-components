@@ -1,0 +1,18 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTION
+	displaying lastest testimony is a slider format
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load static cms_tags %}
+<section class="testimonies {{ instance.width_style }}">
+  <h2>What other teachers are saying about mysite training</h2>
+  <ul>
+		{% for plugin in instance.child_plugin_instances %}
+			{% render_plugin plugin %}
+		{% endfor %}
+  </ul>
+</section>
+

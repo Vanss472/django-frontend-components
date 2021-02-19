@@ -1,0 +1,80 @@
+{% load static cms_tags %}
+<div class="utility">
+  <div>
+    <nav class="">
+      <div class="menu-utility-container">
+        <ul id="menu-utility" class="menu">
+          {% static_placeholder "utility_menu" %}
+        </ul>
+      </div>
+      <button class="search">
+        <img
+          src="{% static 'images/icon-search.svg' %}"
+          alt="search site"
+        />
+        <img
+          src="{% static 'images/icon-close.svg' %}"
+          alt="close search form"
+        />
+      </button>
+    </nav>
+    <form role="search" method="get" id="searchform" action="/">
+      <label for="search" class="screen-reader-text">Search</label>
+      <input type="search" id="search" name="s" placeholder="Search …" value="" />
+      <button type="submit">
+        <img
+          src="{% static 'images/icon-search.svg' %}"
+          alt="search site"
+        />
+      </button>
+    </form>
+  </div>
+</div>
+<div class="primary-navigation">
+  <nav>
+    <a href="/">
+      <img
+        class="logo"
+        src="{% static 'images/logo-mysite-bg.svg' %}"
+        alt="institute for multi-sensory education"
+      />
+    </a>
+    <div>
+      <div class="menu-primary-navigation-container">
+        <ul id="menu-primary-navigation" class="menu">
+          {% static_placeholder "main_menu" %}
+        </ul>
+      </div>
+      <a href="/login" class="button">Login</a>
+      <a href="tel:+18006469788">
+        <img src="{% static 'images/icon-call.svg' %}" alt="call mysite" />
+      </a>
+    </div>
+  </nav>
+</div>
+<div class="sticky-navigation">
+  <nav>
+    <a href="/">
+      <img
+        class="logo"
+        src="{% static 'images/logo-mysite.svg' %}"
+        alt="institute for multi-sensory education"
+      />
+    </a>
+    <div>
+      <div class="menu-primary-navigation-container">
+        <ul class="menu">
+          {% static_placeholder "main_menu" %}
+        </ul>
+      </div>
+      <a class="phone" href="tel:+18006469788">
+        <img src="{% static 'images/icon-call.svg' %}" alt="call mysite" />
+      </a>
+      <a class="cart" href="/cart/">
+        <img src="{% static 'images/icon-cart.svg' %}" alt="view cart" />
+      </a>
+    </div>
+  </nav>
+</div>
+
+{% include "includes/navigation-mobile.html" %}

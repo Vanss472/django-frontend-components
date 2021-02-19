@@ -1,0 +1,16 @@
+{% load cms_tags %}
+{% comment %}
+/*----------------------------------------------------------------*\
+
+ARTICLE SECTION
+displaying grid of cards
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+
+
+<section class="card-grid {{ instance.format_style }}-cards {{ instance.width_style }} {{ instance.columns_style }}">
+  {% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+  {% endfor %}
+</section>

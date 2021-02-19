@@ -1,0 +1,16 @@
+django-cms==3.8.*
+djangocms-admin-style
+django-treebeard
+
+djangocms-forms
+djangocms-text-ckeditor
+djangocms-link
+djangocms-googlemap
+djangocms-video
+easy_thumbnails
+django-filer
+Django==3.0.*
+html5lib
+Pillow
+six
+pytz

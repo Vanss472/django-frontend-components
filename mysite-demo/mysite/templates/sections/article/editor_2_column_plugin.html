@@ -1,0 +1,17 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTIONc
+	containing a 2 wysiwyg editor
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags %}
+<section class="editor-2-column {{ instance.width_style }}">
+	<div>
+		{{ instance.content_left }}
+	</div>
+	<div>
+		{{ instance.content_right }}
+	</div>
+</section>

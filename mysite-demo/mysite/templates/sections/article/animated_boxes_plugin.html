@@ -1,0 +1,8 @@
+{% load cms_tags %}
+<section class="editor {{ instance.width_style }}">
+  <ul class="animated-boxes">
+    {% for plugin in instance.child_plugin_instances %}
+			{% render_plugin plugin %}
+		{% endfor %}
+  </ul>
+</section>

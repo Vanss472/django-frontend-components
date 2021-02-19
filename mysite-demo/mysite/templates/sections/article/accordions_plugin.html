@@ -1,0 +1,6 @@
+{% load cms_tags %}
+<section class="accordions editor {{ instance.width_style }}">
+  {% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+  {% endfor %}
+</section>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock description %}
+{% block body_class %}trainings page-template-archive-training woocommerce-js{% endblock %}
+
+{% block hero_content %}
+  {% include "sections/header-standard.html" %}
+{% endblock %}
+
+{% block sub_nav %}
+	{% include "includes/training-sub-navigation.html" %}
+{% endblock %}
+
+{% block content %}
+  <article>
+    {% include "sections/article/content.html" %}
+
+    {% include "sections/article/training.html" %}
+  </article>
+{% endblock %}

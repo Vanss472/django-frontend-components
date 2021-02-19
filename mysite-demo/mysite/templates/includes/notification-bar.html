@@ -1,0 +1,13 @@
+{% load cms_tags %}
+<div class="standard-notification notification-bar note-on">
+  <div>
+    <button class="is-icon">
+      <svg><use xlink:href="#close"></use></svg>
+    </button>
+    {% static_placeholder "Site Notification" or %}
+
+      <p>Please use Text Plugin to add content.</p>
+
+	  {% endstatic_placeholder %}
+  </div>
+</div>

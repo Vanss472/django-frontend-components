@@ -1,0 +1,11 @@
+{% load menu_tags cms_tags %}
+<nav class="child-page-navigation">
+  <div class="menu-training-container">
+    <ul class="menu">
+      <li class="menu-item{% if request.path == '/en/training/' %} current-menu-item{% endif %}">
+        <a href="/en/training/">Training Schedule</a>
+      </li>
+      {% show_menu 1 %}
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,52 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTION
+	displaying latest testimony is a slider format
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags static %}
+<li id="testimony-{{ forloop.counter }}" class="testimony {% if forloop.counter == 2 %}is-active{% endif %}">
+  {% comment %} Truncated strings will end with a translatable ellipsis character (“…”). {% endcomment %}
+  {% if instance.quote|length >= 450 %}
+    <p>{{ instance.quote|truncatechars:450 }}</p>
+  {% else %}
+  <p>{{ instance.quote }}</p>
+  {% endif %}
+
+  <button>
+    <img src="{% static 'images/logomark.svg' %}" alt="" />
+    <div>
+      <p>{{ instance.title }}</p>
+      {% if instance.job_title %}
+        <p>
+          <b>{{ instance.job_title }}</b>
+          {% if instance.location %}
+            <br/>{{ instance.location }}
+          {% endif %}
+        </p>
+      {% endif %}
+    </div>
+  </button>
+
+  <!-- get the previous element -->
+  {% with previous_element=forloop.counter|add:"-1" %}
+    {% if previous_element == 0 %}
+      <a href="#testimony-{{ previous_element|add:"3" }}" class="arrow prev"></a>
+    {% else %}
+      <a href="#testimony-{{ previous_element }}" class="arrow prev"></a>
+    {% endif %}
+  {% endwith %}
+
+  <!-- get the next element -->
+  {% with next_element=forloop.counter|add:"+1" %}
+    {% if next_element == 4 %}
+      <a href="#testimony-{{ next_element|add:"-3" }}" class="arrow next"></a>
+    {% else %}
+      <a href="#testimony-{{ next_element }}" class="arrow next"></a>
+    {% endif %}
+  {% endwith %}
+</li>
+
+

@@ -1,0 +1,97 @@
+<section class="main-section-1 is-extra-wide">
+  <h2>Training Options</h2>
+  <div class="sec1-div2">
+    <form id="form1">
+      <div class="frm1">
+        <label for="state">Choose State</label>
+        <select id="state" onchange="fnFilter('state',this.value);">
+          <option value="" disabled selected>Select State</option>
+          {% for state in states %}
+            <option value="{{ state }}" {% if state == state %}selected{% endif %}>{{ state }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="frm2">
+        <label for="city">Choose City</label>
+        <select id="city" onchange="fnFilter('city',this.value);">
+          <option value="" disabled selected>Select City</option>
+          {% for city in cities %}
+            <option value="{{ city }}" {% if city == city %}selected{% endif %}>{{ city }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="frm3">
+        <label for="cars">Choose Course</label>
+        <select id="course" onchange="fnFilter('course',this.value);">
+          <option value="" disabled selected>Select Course Type</option>
+          {% for course in courses %}
+            <option value="{{ course }}" {% if course == course %}selected{% endif %}>{{ course }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="sec1-div3" id="oDiv">
+    <div class="inner-table-div">
+      <ul class="training-sechdule" id="oTable">
+        <li>
+          <div>Title</div>
+          <div>Date</div>
+          <div>City</div>
+          <div>State</div>
+          <div>Availability</div>
+        </li>
+        {% for training_session in training_sessions %}
+        <li>
+          <a class="{{ class }}" href="/training/{{ training_session.id }}/">
+            <div>
+              {{ training_session.course.title }}
+            </div>
+            <div>
+              {{ training_session.days }}
+            </div>
+            <div>
+              {{ training_session.city }}
+            </div>
+            <div>
+              {{ training_session.state.name|default:'' }}
+            </div>
+            <div>
+              {% if training_session.available == 'Available' %}
+                <span class="available">{{ training_session.available }}</span>
+              {% else %}
+                <span class="wait">{{ training_session.available }}</span>
+              {% endif %}
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  var loc = '/training/';
+  var city='';
+  var state='';
+  var course='';
+  function fnFilter(param,val){
+    if(param == 'city'){
+      city = val;
+      if (typeof state !== '') {
+        state = state
+      }
+    }else if(param=='state'){
+      state = val;
+    }else{
+      course = val;
+    }
+    window.location.href=loc+"?city="+city+"&state="+state+"&course="+course;
+    /*if(window.location.href.indexOf('?') == -1){
+    window.location.href=window.location.href+"?"+param+"="+val;
+    }else{
+    window.location.href=window.location.href+"&"+param+"="+val;
+    }*/
+  }
+</script>

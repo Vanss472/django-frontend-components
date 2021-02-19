@@ -1,0 +1,14 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTION
+	displaying gallery of images
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags %}
+<section class="gallery {{ instance.width_style }} {{ instance.columns_style }}">
+  {% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+  {% endfor %}
+</section>

@@ -1,0 +1,28 @@
+{% load cms_tags thumbnail %}
+
+<header class="action-header">
+  <h1>{{ instance.header_title }}</h1>
+
+  <p class="subheader">
+    {{ instance.header_description }}
+  </p>
+
+  <a class="button is-paint" href="{{ instance.header_button_url }}" {% if instance.header_button_open_in_a_new_tab %}target="_blank"{% endif %}>
+    {{ instance.header_button_text }} >
+  </a>
+
+  <svg viewBox="0 0 1440 320">
+    <use xlink:href="#wave"></use>
+  </svg>
+
+  <img
+    class="lazyload blur-up"
+    data-expand="100"
+    data-sizes="auto"
+    data-src="{{ instance.header_image.url }}"
+    data-srcset="{% thumbnail instance.header_image 400x240 crop %} 350w,
+    {% thumbnail instance.header_image 800x479 crop %} 500w,
+    {% thumbnail instance.header_image 1024x613 crop %} 700w,
+    {{ instance.header_image.url }} 1000w"
+    alt="{{ instance.header_image_alt }}" />
+</header>

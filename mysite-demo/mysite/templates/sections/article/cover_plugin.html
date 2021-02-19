@@ -1,0 +1,36 @@
+{% comment %}
+/*----------------------------------------------------------------*\
+
+	ARTICLE SECTION
+	displaying content with background image
+
+\*----------------------------------------------------------------*/
+{% endcomment %}
+{% load cms_tags %}
+{% if instance.cover_background_image %}
+  	<section class="cover {{ instance.width_style }}" style="background-image: url({{ instance.cover_background_image.url }});">
+		<div>
+			<div>
+	      {{ instance.content }}
+
+
+        {% if instance.cover_button_text %}
+          <a class="button is-paint" href="{{ instance.cover_button_url }}" {% if instance.cover_button_open_in_a_new_tab %}target="_blank"{% endif %}>
+            {{ instance.cover_button_text  }}
+          </a>
+        {% endif %}
+			</div>
+		</div>
+	</section>
+{% else %}
+  <section class="cover {{ instance.cover_width_style }}">
+		<div>
+	      {{ instance.content }}
+		</div>
+        {% if instance.cover_button_text %}
+          <a class="button is-paint" href="{{ instance.cover_button_url }}" {% if instance.cover_button_open_in_a_new_tab %}target="_blank"{% endif %}>
+            {{ instance.cover_button_text  }}
+          </a>
+        {% endif %}
+	</section>
+{% endif %}

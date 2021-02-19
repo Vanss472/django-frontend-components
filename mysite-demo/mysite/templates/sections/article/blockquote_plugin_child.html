@@ -1,0 +1,20 @@
+{% load cms_tags  %}
+<blockquote>
+    <p>
+      {{ instance.quote }}
+    </p>
+    <footer class="quotee">
+      <span class="name">{{ instance.title }}</span>
+      {% if instance.job_title %}
+        <strong>{{ instance.job_title }}</strong>
+      {% endif %}
+
+      {% if instance.job_title and instance.location %}
+        ,
+      {% endif %}
+
+      {% if instance.location %}
+      {{ instance.location }}
+      {% endif %}
+    </footer>
+  </blockquote>

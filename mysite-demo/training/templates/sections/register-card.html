@@ -1,0 +1,83 @@
+{% load cms_tags thumbnail %}
+<header class="register-card">
+	<section class="price-card is-extra-wide">
+    {% if instance.header_image.url %}
+    <img
+      class="lazyload blur-up"
+      data-expand="100"
+      data-sizes="auto"
+      data-src="{{ instance.header_image.url }}"
+      data-srcset="
+        {% thumbnail instance.header_image 400x240 %} 250w,
+        {% thumbnail instance.header_image 800x481 %} 350w,
+        {{ instance.header_image.url }} 500w,
+        {{ instance.header_image.url }} 800w"
+      alt="{{ instance.header_image_alt }}"
+    />
+    {% endif %}
+
+		<div class="description">
+			<h1>
+				{{ title }}
+			</h1>
+			<div class="details">
+				<div>
+					<h2>Availability</h2>
+					<p>
+            {% if available_seats > 0 %}
+              Available
+            {% else %}
+							Waitlist
+            {% endif %}
+					</p>
+				</div>
+				<div>
+					<h2>Training Dates</h2>
+					<p>
+            {{ training_dates }}
+					</p>
+					<div class="open-btn">
+						<button class="open-button button is-text" onclick="">
+							<strong>Add to Calendar</strong>
+						</button>
+					</div>
+					<div id="loginPopup">
+      			<div class="form-popup" id="popupForm">
+							<ul>
+								<li><a href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ title }}&dates={{ training_dates }}/{{ training_dates }}&details={{ title }}&location={{ location }}" target="_blank"><img src="https://mysitesite.wpengine.com/wp-content/uploads/2020/04/icon-google-t5.svg">Google </a></li>
+								<li><a href="http://calendar.live.com/calendar/calendar.aspx?rru=addevent&summary={{ title }}&dtstart={{ training_dates }}&dtend={{ training_dates }}&description={{ title }}&location={{ location }}" target="_blank"><img src="https://mysitesite.wpengine.com/wp-content/uploads/2020/04/icon-outlookcom-t5.svg">Outlook</a></li>
+								<li><a href="http://calendar.yahoo.com/?v=60&title={{ title }}&st={{ training_dates }}&et={{ training_dates }}&desc={{ title }}&in_loc={{ location }}" target="_blank"><img src="https://mysitesite.wpengine.com/wp-content/uploads/2020/04/icon-yahoo-t5.svg">Yahoo </a></li>
+								<li><a class="test-ics"><img src="https://mysitesite.wpengine.com/wp-content/uploads/2020/04/icon-apple-t5.svg">Apple</a></li>
+								<li><a class="test-ics" ><img src="https://mysitesite.wpengine.com/wp-content/uploads/2020/04/icon-outlookcom-t5.svg">Outlook (Offline)</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div>
+					<h2>Location</h2>
+					<p>
+            {% if street %}
+              {{ street }},
+            {% endif %}
+            {{ city }}, {{ state }}
+					</p>
+					<a class="button is-text" href="https://www.google.com/maps/dir/?api=1&amp;destination=<?php echo $val['latitude']; ?>,<?php echo $val['longitude']; ?>" target="_blank">
+						Directions >
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="price">
+			<p>${{ price }}</p>
+      {% if available_seats > 0 and productID > 0 %}
+        <a class="button is-text" href="#register">
+					Register for this course
+				</a>
+      {% else %}
+        <a class="button is-text" href="#register">
+					Join the waitlist
+				</a>
+      {% endif %}
+		</div>
+	</section>
+</header>
